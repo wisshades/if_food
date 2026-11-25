@@ -31,8 +31,9 @@ namespace IF_FOOD
 
                         if (readerProd != null && readerProd.Read())
                         {
-                            Produto Prod = new Produto(readerProd.GetInt32(0), readerProd.GetString(1),
-                                readerProd.GetString(2), readerProd.GetInt32(3), readerProd.GetDouble(4));
+                            Produto Prod = new Produto(reader.GetInt32(0), reader.GetString(1),
+                                        reader.GetString(2), reader.GetInt32(3),
+                                       reader.GetString(4), reader.GetString(5), reader.GetDouble(6));
 
                                 lista.Add(new Item_Pedido(reader.GetInt32(0), Prod,
                                                     reader.GetInt32(2), reader.GetDouble(3)));

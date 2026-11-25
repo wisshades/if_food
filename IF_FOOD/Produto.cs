@@ -14,7 +14,10 @@ namespace IF_FOOD
 
         public string Codigo { get; set; } = "";
         public string Desc { get; set; } = "";
+
         public int Qtde { get; set; } = 0;
+        public string nome { get; set; } = "";
+        public string categoria { get; set; } = "";
         public double Preco { get; set; } = 0;
 
         /*static public void Gera_Id()
@@ -34,12 +37,14 @@ namespace IF_FOOD
             //this.Codigo += this.id_Produto.ToString();
         }
 
-        public Produto(int Id, string Codigo, string Desc, int Qtde, double Preco):this()
+        public Produto(int Id, string Codigo, string Desc, int Qnt, string nome, string categoria, double Preco):this()
         {
             this.Id_Produto = Id;
             this.Codigo = Codigo;
             this.Desc = Desc;
-            this.Qtde = Qtde;
+            this.Qtde = Qnt;
+            this.nome = nome;
+            this.categoria = categoria;
             this.Preco = Preco;
         }
     }

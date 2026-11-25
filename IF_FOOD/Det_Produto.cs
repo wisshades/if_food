@@ -29,7 +29,7 @@ namespace IF_FOOD
         {
             tb_Codigo.Text = this.Prod.Codigo;
             tb_Descricao.Text = this.Prod.Desc;
-            tb_Qtde.Text = this.Prod.Qtde.ToString();
+            
             tb_Preco.Text = this.Prod.Preco.ToString();
         }
 
@@ -40,7 +40,7 @@ namespace IF_FOOD
             {
                 ProdutoBD ProdBD = new ProdutoBD();
                 this.Prod.Desc = tb_Descricao.Text;
-                this.Prod.Qtde = Int32.Parse(tb_Qtde.Text);
+                
                 this.Prod.Preco = Double.Parse(tb_Preco.Text);
 
                 if (this.Prod.Id_Produto == 0)

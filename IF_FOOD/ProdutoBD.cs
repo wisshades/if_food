@@ -28,7 +28,7 @@ namespace IF_FOOD
 
                 lista.Add(new Produto(reader.GetInt32(0),reader.GetString(1),
                                         reader.GetString(2), reader.GetInt32(3),
-                                       reader.GetDouble(4)));
+                                       reader.GetString(4), reader.GetString(5), reader.GetDouble(6)));
             }
         
             return lista;

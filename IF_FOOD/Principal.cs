@@ -115,7 +115,7 @@ namespace IF_FOOD
 
                         try
                         {
-                            w_Lista_Produtos telaAdmin = new w_Lista_Produtos();
+                            w_MenuAdm telaAdmin = new w_MenuAdm();
                             telaAdmin.ShowDialog();
                         }
                         finally
@@ -164,6 +164,11 @@ namespace IF_FOOD
         private void btn_Sair_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tb_Senha_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

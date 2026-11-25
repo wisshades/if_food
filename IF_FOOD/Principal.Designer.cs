@@ -54,7 +54,7 @@
             p_Login.Controls.Add(lbl_Bem);
             p_Login.Location = new Point(-4, -7);
             p_Login.Name = "p_Login";
-            p_Login.Size = new Size(488, 700);
+            p_Login.Size = new Size(488, 737);
             p_Login.TabIndex = 2;
             // 
             // lbl_Ola
@@ -62,10 +62,10 @@
             lbl_Ola.AutoSize = true;
             lbl_Ola.Font = new Font("Microsoft Sans Serif", 26.75F, FontStyle.Bold);
             lbl_Ola.ForeColor = SystemColors.ControlLightLight;
-            lbl_Ola.Location = new Point(81, 142);
+            lbl_Ola.Location = new Point(81, 149);
             lbl_Ola.Margin = new Padding(4, 0, 4, 0);
             lbl_Ola.Name = "lbl_Ola";
-            lbl_Ola.Size = new Size(87, 40);
+            lbl_Ola.Size = new Size(109, 52);
             lbl_Ola.TabIndex = 35;
             lbl_Ola.Text = "Olá,";
             // 
@@ -74,10 +74,10 @@
             lbl_food.AutoSize = true;
             lbl_food.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_food.ForeColor = SystemColors.ControlLightLight;
-            lbl_food.Location = new Point(126, 89);
+            lbl_food.Location = new Point(126, 94);
             lbl_food.Margin = new Padding(4, 0, 4, 0);
             lbl_food.Name = "lbl_food";
-            lbl_food.Size = new Size(41, 20);
+            lbl_food.Size = new Size(50, 25);
             lbl_food.TabIndex = 34;
             lbl_food.Text = "food";
             // 
@@ -86,10 +86,10 @@
             lbl_IF.AutoSize = true;
             lbl_IF.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_IF.ForeColor = SystemColors.ControlLightLight;
-            lbl_IF.Location = new Point(99, 84);
+            lbl_IF.Location = new Point(99, 88);
             lbl_IF.Margin = new Padding(4, 0, 4, 0);
             lbl_IF.Name = "lbl_IF";
-            lbl_IF.Size = new Size(32, 25);
+            lbl_IF.Size = new Size(41, 31);
             lbl_IF.TabIndex = 33;
             lbl_IF.Text = "IF";
             // 
@@ -98,15 +98,16 @@
             lbl_Bem.AutoSize = true;
             lbl_Bem.Font = new Font("Microsoft Sans Serif", 26.75F, FontStyle.Bold);
             lbl_Bem.ForeColor = SystemColors.ControlLightLight;
-            lbl_Bem.Location = new Point(99, 190);
+            lbl_Bem.Location = new Point(99, 200);
             lbl_Bem.Margin = new Padding(4, 0, 4, 0);
             lbl_Bem.Name = "lbl_Bem";
-            lbl_Bem.Size = new Size(205, 40);
+            lbl_Bem.Size = new Size(255, 52);
             lbl_Bem.TabIndex = 32;
             lbl_Bem.Text = "bem-vindo!";
             // 
             // contextMenuStrip1
             // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
@@ -116,9 +117,9 @@
             btn_Entrar.FlatStyle = FlatStyle.Flat;
             btn_Entrar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Entrar.ForeColor = SystemColors.ControlLightLight;
-            btn_Entrar.Location = new Point(678, 346);
+            btn_Entrar.Location = new Point(678, 364);
             btn_Entrar.Name = "btn_Entrar";
-            btn_Entrar.Size = new Size(143, 48);
+            btn_Entrar.Size = new Size(143, 51);
             btn_Entrar.TabIndex = 23;
             btn_Entrar.Text = "Entrar";
             btn_Entrar.UseVisualStyleBackColor = false;
@@ -130,10 +131,10 @@
             btn_Sair.FlatStyle = FlatStyle.Flat;
             btn_Sair.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Sair.ForeColor = Color.FromArgb(147, 122, 219);
-            btn_Sair.Location = new Point(837, 346);
+            btn_Sair.Location = new Point(837, 364);
             btn_Sair.Margin = new Padding(4);
             btn_Sair.Name = "btn_Sair";
-            btn_Sair.Size = new Size(141, 45);
+            btn_Sair.Size = new Size(141, 47);
             btn_Sair.TabIndex = 25;
             btn_Sair.Text = "Fechar";
             btn_Sair.UseVisualStyleBackColor = false;
@@ -142,17 +143,20 @@
             // tb_Senha
             // 
             tb_Senha.Font = new Font("Microsoft Sans Serif", 11F);
-            tb_Senha.Location = new Point(678, 282);
+            tb_Senha.HideSelection = false;
+            tb_Senha.Location = new Point(678, 297);
             tb_Senha.Name = "tb_Senha";
-            tb_Senha.Size = new Size(300, 24);
+            tb_Senha.PasswordChar = '*';
+            tb_Senha.Size = new Size(300, 28);
             tb_Senha.TabIndex = 27;
+            tb_Senha.TextChanged += tb_Senha_TextChanged;
             // 
             // lbl_CPF
             // 
             lbl_CPF.AutoSize = true;
-            lbl_CPF.Location = new Point(678, 175);
+            lbl_CPF.Location = new Point(678, 184);
             lbl_CPF.Name = "lbl_CPF";
-            lbl_CPF.Size = new Size(33, 19);
+            lbl_CPF.Size = new Size(33, 20);
             lbl_CPF.TabIndex = 24;
             lbl_CPF.Text = "CPF";
             // 
@@ -161,38 +165,38 @@
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 14F);
             label7.ForeColor = Color.MediumPurple;
-            label7.Location = new Point(784, 111);
+            label7.Location = new Point(784, 117);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(67, 24);
+            label7.Size = new Size(87, 29);
             label7.TabIndex = 28;
             label7.Text = "LOGIN";
             // 
             // lbl_Senha
             // 
             lbl_Senha.AutoSize = true;
-            lbl_Senha.Location = new Point(678, 260);
+            lbl_Senha.Location = new Point(678, 274);
             lbl_Senha.Name = "lbl_Senha";
-            lbl_Senha.Size = new Size(46, 19);
+            lbl_Senha.Size = new Size(49, 20);
             lbl_Senha.TabIndex = 26;
             lbl_Senha.Text = "Senha";
             // 
             // tb_Cpf
             // 
             tb_Cpf.Font = new Font("Microsoft Sans Serif", 11F);
-            tb_Cpf.Location = new Point(678, 198);
+            tb_Cpf.HideSelection = false;
+            tb_Cpf.Location = new Point(678, 208);
             tb_Cpf.Margin = new Padding(4);
             tb_Cpf.Mask = "000,000,000-00";
             tb_Cpf.Name = "tb_Cpf";
-            tb_Cpf.PasswordChar = '*';
-            tb_Cpf.Size = new Size(300, 24);
+            tb_Cpf.Size = new Size(300, 28);
             tb_Cpf.TabIndex = 29;
             // 
             // w_Principal
             // 
-            AutoScaleDimensions = new SizeF(8F, 19F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 661);
+            ClientSize = new Size(1184, 696);
             Controls.Add(tb_Cpf);
             Controls.Add(label7);
             Controls.Add(tb_Senha);
