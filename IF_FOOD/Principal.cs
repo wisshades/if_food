@@ -8,6 +8,10 @@ namespace IF_FOOD
 {
     public partial class w_Principal : Form
     {
+        bool sidebarExpand = true;
+
+        const int larguraMaxima = 204;
+        const int larguraMinima = 60;
         public w_Principal()
         {
             InitializeComponent();
@@ -169,6 +173,54 @@ namespace IF_FOOD
         private void tb_Senha_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void sidebarTimer_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                // Se está aberto, vai diminuindo a largura de 10 em 10 pixels
+                SideBar.Width -= 10;
+                if (SideBar.Width <= larguraMinima)
+                {
+                    SideBar.Width = larguraMinima;
+                    sidebarExpand = false;
+                    sidebarTimer.Stop(); // Para a animação
+                }
+            }
+            else
+            {
+                // Se está fechado, vai aumentando a largura de 10 em 10 pixels
+                SideBar.Width += 10;
+                if (SideBar.Width >= larguraMaxima)
+                {
+                    SideBar.Width = larguraMaxima;
+                    sidebarExpand = true;
+                    sidebarTimer.Stop(); // Para a animação
+                }
+            }
+        }
+
+        private void btn_Menu_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
+        }
+
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+            w_Principal Login = new w_Principal();
+            Login.ShowDialog();
+        }
+
+        private void btn_Cadastro_Click(object sender, EventArgs e)
+        {
+            w_Det_Cadastrar Cadastrar = new w_Det_Cadastrar();
+            Cadastrar.ShowDialog();
         }
     }
 }
