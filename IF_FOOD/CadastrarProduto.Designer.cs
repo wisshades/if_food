@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelImagem = new Panel();
+            btn_colocar = new Button();
             lbl_imagem = new Label();
             pb_cad = new PictureBox();
             panelCadastrar = new Panel();
@@ -45,6 +46,7 @@
             btn_salvar = new Button();
             lbl_cadastro = new Label();
             btn_fechar = new Button();
+            openFileDialog1 = new OpenFileDialog();
             panelImagem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_cad).BeginInit();
             panelCadastrar.SuspendLayout();
@@ -53,12 +55,23 @@
             // panelImagem
             // 
             panelImagem.BackColor = Color.FromArgb(64, 0, 64);
+            panelImagem.Controls.Add(btn_colocar);
             panelImagem.Controls.Add(lbl_imagem);
             panelImagem.Controls.Add(pb_cad);
             panelImagem.Location = new Point(62, 89);
             panelImagem.Name = "panelImagem";
-            panelImagem.Size = new Size(254, 321);
+            panelImagem.Size = new Size(254, 349);
             panelImagem.TabIndex = 0;
+            // 
+            // btn_colocar
+            // 
+            btn_colocar.Location = new Point(60, 301);
+            btn_colocar.Name = "btn_colocar";
+            btn_colocar.Size = new Size(132, 29);
+            btn_colocar.TabIndex = 2;
+            btn_colocar.Text = "Colocar Imagem";
+            btn_colocar.UseVisualStyleBackColor = true;
+            btn_colocar.Click += btn_enviar_Click;
             // 
             // lbl_imagem
             // 
@@ -222,6 +235,10 @@
             btn_fechar.UseVisualStyleBackColor = true;
             btn_fechar.Click += btn_fechar_Click;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // w_CadastrarProduto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -247,7 +264,6 @@
         #endregion
 
         private Panel panelImagem;
-        private PictureBox pb_cad;
         private Panel panelCadastrar;
         private TextBox txt_desc;
         private Label lbl_desc;
@@ -263,5 +279,8 @@
         private Label lbl_imagem;
         private Label lbl_cadastro;
         private Button btn_fechar;
+        private Button btn_colocar;
+        private PictureBox pb_cad;
+        private OpenFileDialog openFileDialog1;
     }
 }

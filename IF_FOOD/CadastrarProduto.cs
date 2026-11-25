@@ -108,5 +108,17 @@ namespace IF_FOOD
         {
 
         }
+
+        private void btn_enviar_Click(object sender, EventArgs e)
+        {
+            using(OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    pb_cad.ImageLocation = ofd.FileName;
+                }
+            }
+        }
     }
 }
