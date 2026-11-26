@@ -127,5 +127,25 @@ namespace IF_FOOD
         {
             this.Close();
         }
+
+        private void lbl_Cardapio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void w_cardapio_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ajudaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
