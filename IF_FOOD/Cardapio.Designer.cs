@@ -40,16 +40,18 @@
             // 
             panelCardapio.BackColor = Color.FromArgb(64, 0, 64);
             panelCardapio.Controls.Add(btn_Sair);
-            panelCardapio.Location = new Point(2, 4);
+            panelCardapio.Location = new Point(2, 3);
+            panelCardapio.Margin = new Padding(3, 2, 3, 2);
             panelCardapio.Name = "panelCardapio";
-            panelCardapio.Size = new Size(166, 695);
+            panelCardapio.Size = new Size(145, 521);
             panelCardapio.TabIndex = 0;
             // 
             // btn_Sair
             // 
-            btn_Sair.Location = new Point(5, 615);
+            btn_Sair.Location = new Point(4, 461);
+            btn_Sair.Margin = new Padding(3, 2, 3, 2);
             btn_Sair.Name = "btn_Sair";
-            btn_Sair.Size = new Size(158, 54);
+            btn_Sair.Size = new Size(138, 40);
             btn_Sair.TabIndex = 4;
             btn_Sair.Text = "Sair";
             btn_Sair.UseVisualStyleBackColor = true;
@@ -58,40 +60,44 @@
             // lbl_Cardapio
             // 
             lbl_Cardapio.AutoSize = true;
-            lbl_Cardapio.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbl_Cardapio.Location = new Point(238, 85);
+            lbl_Cardapio.Font = new Font("Microsoft Sans Serif", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_Cardapio.Location = new Point(208, 64);
             lbl_Cardapio.Name = "lbl_Cardapio";
-            lbl_Cardapio.Size = new Size(248, 54);
+            lbl_Cardapio.Size = new Size(165, 39);
             lbl_Cardapio.TabIndex = 5;
             lbl_Cardapio.Text = "Cardápio";
             // 
             // txt_Pesquisa
             // 
-            txt_Pesquisa.Location = new Point(841, 110);
+            txt_Pesquisa.Location = new Point(736, 82);
+            txt_Pesquisa.Margin = new Padding(3, 2, 3, 2);
             txt_Pesquisa.Name = "txt_Pesquisa";
-            txt_Pesquisa.Size = new Size(237, 27);
+            txt_Pesquisa.Size = new Size(208, 23);
             txt_Pesquisa.TabIndex = 6;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(211, 185);
+            flowLayoutPanel1.Location = new Point(185, 139);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(938, 428);
+            flowLayoutPanel1.Size = new Size(821, 321);
             flowLayoutPanel1.TabIndex = 7;
             // 
             // w_cardapio
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(1182, 697);
+            ClientSize = new Size(1034, 523);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(txt_Pesquisa);
             Controls.Add(lbl_Cardapio);
             Controls.Add(panelCardapio);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "w_cardapio";
-            Text = "Cardapio";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Cardápio";
             panelCardapio.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

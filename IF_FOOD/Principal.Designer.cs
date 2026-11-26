@@ -143,7 +143,7 @@
             lbl_Bem.AutoSize = true;
             lbl_Bem.Font = new Font("Microsoft Sans Serif", 26.75F, FontStyle.Bold);
             lbl_Bem.ForeColor = SystemColors.ControlLightLight;
-            lbl_Bem.Location = new Point(206, 185);
+            lbl_Bem.Location = new Point(243, 184);
             lbl_Bem.Margin = new Padding(4, 0, 4, 0);
             lbl_Bem.Name = "lbl_Bem";
             lbl_Bem.Size = new Size(205, 40);
@@ -155,7 +155,7 @@
             lbl_IF.AutoSize = true;
             lbl_IF.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_IF.ForeColor = SystemColors.ControlLightLight;
-            lbl_IF.Location = new Point(261, 101);
+            lbl_IF.Location = new Point(298, 100);
             lbl_IF.Margin = new Padding(4, 0, 4, 0);
             lbl_IF.Name = "lbl_IF";
             lbl_IF.Size = new Size(32, 25);
@@ -167,7 +167,7 @@
             lbl_food.AutoSize = true;
             lbl_food.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_food.ForeColor = SystemColors.ControlLightLight;
-            lbl_food.Location = new Point(286, 105);
+            lbl_food.Location = new Point(323, 104);
             lbl_food.Margin = new Padding(4, 0, 4, 0);
             lbl_food.Name = "lbl_food";
             lbl_food.Size = new Size(41, 20);
@@ -179,7 +179,7 @@
             lbl_Ola.AutoSize = true;
             lbl_Ola.Font = new Font("Microsoft Sans Serif", 26.75F, FontStyle.Bold);
             lbl_Ola.ForeColor = SystemColors.ControlLightLight;
-            lbl_Ola.Location = new Point(206, 142);
+            lbl_Ola.Location = new Point(243, 141);
             lbl_Ola.Margin = new Padding(4, 0, 4, 0);
             lbl_Ola.Name = "lbl_Ola";
             lbl_Ola.Size = new Size(87, 40);
@@ -195,11 +195,12 @@
             SideBar.Dock = DockStyle.Left;
             SideBar.Location = new Point(0, 0);
             SideBar.Name = "SideBar";
-            SideBar.Size = new Size(204, 553);
+            SideBar.Size = new Size(206, 522);
             SideBar.TabIndex = 36;
             // 
             // btn_Menu
             // 
+            btn_Menu.FlatAppearance.BorderSize = 0;
             btn_Menu.FlatStyle = FlatStyle.Flat;
             btn_Menu.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btn_Menu.ForeColor = Color.White;
@@ -213,6 +214,7 @@
             // 
             // btn_Login
             // 
+            btn_Login.FlatAppearance.BorderSize = 0;
             btn_Login.FlatStyle = FlatStyle.Flat;
             btn_Login.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btn_Login.ForeColor = Color.White;
@@ -226,6 +228,7 @@
             // 
             // btn_Cadastro
             // 
+            btn_Cadastro.FlatAppearance.BorderSize = 0;
             btn_Cadastro.FlatStyle = FlatStyle.Flat;
             btn_Cadastro.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btn_Cadastro.ForeColor = Color.White;
@@ -240,30 +243,31 @@
             // p_Login
             // 
             p_Login.BackColor = Color.MediumPurple;
-            p_Login.Controls.Add(SideBar);
             p_Login.Controls.Add(lbl_Ola);
             p_Login.Controls.Add(lbl_food);
             p_Login.Controls.Add(lbl_IF);
             p_Login.Controls.Add(lbl_Bem);
-            p_Login.Location = new Point(-4, -5);
+            p_Login.Location = new Point(0, 0);
             p_Login.Margin = new Padding(3, 2, 3, 2);
             p_Login.Name = "p_Login";
-            p_Login.Size = new Size(427, 553);
+            p_Login.Size = new Size(468, 553);
             p_Login.TabIndex = 2;
+            p_Login.Paint += p_Login_Paint;
             // 
             // w_Principal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(903, 522);
-            Controls.Add(tb_Cpf);
-            Controls.Add(label7);
-            Controls.Add(tb_Senha);
-            Controls.Add(btn_Entrar);
+            Controls.Add(SideBar);
+            Controls.Add(p_Login);
+            Controls.Add(lbl_Senha);
             Controls.Add(btn_Sair);
             Controls.Add(lbl_CPF);
-            Controls.Add(lbl_Senha);
-            Controls.Add(p_Login);
+            Controls.Add(label7);
+            Controls.Add(btn_Entrar);
+            Controls.Add(tb_Senha);
+            Controls.Add(tb_Cpf);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "w_Principal";

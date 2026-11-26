@@ -50,6 +50,8 @@
             lbl_Email = new Label();
             sidebartimerCad = new System.Windows.Forms.Timer(components);
             tb_NomeCad = new TextBox();
+            tb_CEP = new TextBox();
+            lbl_CEP = new Label();
             p_Login.SuspendLayout();
             SideBarCad.SuspendLayout();
             SuspendLayout();
@@ -82,6 +84,7 @@
             // 
             // btn_Menu_Cad
             // 
+            btn_Menu_Cad.FlatAppearance.BorderSize = 0;
             btn_Menu_Cad.FlatStyle = FlatStyle.Flat;
             btn_Menu_Cad.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btn_Menu_Cad.ForeColor = Color.White;
@@ -95,6 +98,7 @@
             // 
             // btn_Login_Cad
             // 
+            btn_Login_Cad.FlatAppearance.BorderSize = 0;
             btn_Login_Cad.FlatStyle = FlatStyle.Flat;
             btn_Login_Cad.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btn_Login_Cad.ForeColor = Color.White;
@@ -108,6 +112,7 @@
             // 
             // btn_Cadastro_Cad
             // 
+            btn_Cadastro_Cad.FlatAppearance.BorderSize = 0;
             btn_Cadastro_Cad.FlatStyle = FlatStyle.Flat;
             btn_Cadastro_Cad.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btn_Cadastro_Cad.ForeColor = Color.White;
@@ -117,6 +122,7 @@
             btn_Cadastro_Cad.TabIndex = 2;
             btn_Cadastro_Cad.Text = "Cadastrar";
             btn_Cadastro_Cad.UseVisualStyleBackColor = true;
+            btn_Cadastro_Cad.Click += btn_Cadastro_Cad_Click;
             // 
             // lbl_Ola
             // 
@@ -170,7 +176,7 @@
             // 
             tb_CpfCad.Font = new Font("Microsoft Sans Serif", 11F);
             tb_CpfCad.HideSelection = false;
-            tb_CpfCad.Location = new Point(543, 268);
+            tb_CpfCad.Location = new Point(543, 296);
             tb_CpfCad.Margin = new Padding(4, 3, 4, 3);
             tb_CpfCad.Mask = "000,000,000-00";
             tb_CpfCad.Name = "tb_CpfCad";
@@ -182,7 +188,7 @@
             lbl_Cadastro.AutoSize = true;
             lbl_Cadastro.Font = new Font("Microsoft Sans Serif", 14F);
             lbl_Cadastro.ForeColor = Color.MediumPurple;
-            lbl_Cadastro.Location = new Point(616, 79);
+            lbl_Cadastro.Location = new Point(616, 48);
             lbl_Cadastro.Margin = new Padding(4, 0, 4, 0);
             lbl_Cadastro.Name = "lbl_Cadastro";
             lbl_Cadastro.Size = new Size(114, 24);
@@ -193,7 +199,7 @@
             // 
             tb_SenhaCad.Font = new Font("Microsoft Sans Serif", 11F);
             tb_SenhaCad.HideSelection = false;
-            tb_SenhaCad.Location = new Point(543, 334);
+            tb_SenhaCad.Location = new Point(543, 362);
             tb_SenhaCad.Margin = new Padding(3, 2, 3, 2);
             tb_SenhaCad.Name = "tb_SenhaCad";
             tb_SenhaCad.Size = new Size(263, 24);
@@ -205,7 +211,7 @@
             btn_Cadastrar.FlatStyle = FlatStyle.Flat;
             btn_Cadastrar.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Cadastrar.ForeColor = SystemColors.ControlLightLight;
-            btn_Cadastrar.Location = new Point(543, 394);
+            btn_Cadastrar.Location = new Point(543, 411);
             btn_Cadastrar.Margin = new Padding(3, 2, 3, 2);
             btn_Cadastrar.Name = "btn_Cadastrar";
             btn_Cadastrar.Size = new Size(125, 38);
@@ -220,7 +226,7 @@
             btn_Sair.FlatStyle = FlatStyle.Flat;
             btn_Sair.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Sair.ForeColor = Color.FromArgb(147, 122, 219);
-            btn_Sair.Location = new Point(683, 394);
+            btn_Sair.Location = new Point(683, 411);
             btn_Sair.Margin = new Padding(4, 3, 4, 3);
             btn_Sair.Name = "btn_Sair";
             btn_Sair.Size = new Size(123, 35);
@@ -232,7 +238,7 @@
             // lbl_CPFCad
             // 
             lbl_CPFCad.AutoSize = true;
-            lbl_CPFCad.Location = new Point(543, 246);
+            lbl_CPFCad.Location = new Point(543, 274);
             lbl_CPFCad.Name = "lbl_CPFCad";
             lbl_CPFCad.Size = new Size(28, 15);
             lbl_CPFCad.TabIndex = 31;
@@ -241,7 +247,7 @@
             // lbl_Senha_Cad
             // 
             lbl_Senha_Cad.AutoSize = true;
-            lbl_Senha_Cad.Location = new Point(543, 317);
+            lbl_Senha_Cad.Location = new Point(543, 345);
             lbl_Senha_Cad.Name = "lbl_Senha_Cad";
             lbl_Senha_Cad.Size = new Size(39, 15);
             lbl_Senha_Cad.TabIndex = 33;
@@ -251,7 +257,7 @@
             // 
             tb_EmailCad.Font = new Font("Microsoft Sans Serif", 11F);
             tb_EmailCad.HideSelection = false;
-            tb_EmailCad.Location = new Point(543, 200);
+            tb_EmailCad.Location = new Point(543, 169);
             tb_EmailCad.Margin = new Padding(3, 2, 3, 2);
             tb_EmailCad.Name = "tb_EmailCad";
             tb_EmailCad.Size = new Size(263, 24);
@@ -260,7 +266,7 @@
             // lbl_Nome
             // 
             lbl_Nome.AutoSize = true;
-            lbl_Nome.Location = new Point(543, 119);
+            lbl_Nome.Location = new Point(543, 88);
             lbl_Nome.Name = "lbl_Nome";
             lbl_Nome.Size = new Size(40, 15);
             lbl_Nome.TabIndex = 37;
@@ -269,7 +275,7 @@
             // lbl_Email
             // 
             lbl_Email.AutoSize = true;
-            lbl_Email.Location = new Point(543, 183);
+            lbl_Email.Location = new Point(543, 152);
             lbl_Email.Name = "lbl_Email";
             lbl_Email.Size = new Size(36, 15);
             lbl_Email.TabIndex = 38;
@@ -284,17 +290,38 @@
             // 
             tb_NomeCad.Font = new Font("Microsoft Sans Serif", 11F);
             tb_NomeCad.HideSelection = false;
-            tb_NomeCad.Location = new Point(543, 138);
+            tb_NomeCad.Location = new Point(543, 107);
             tb_NomeCad.Margin = new Padding(3, 2, 3, 2);
             tb_NomeCad.Name = "tb_NomeCad";
             tb_NomeCad.Size = new Size(263, 24);
             tb_NomeCad.TabIndex = 40;
+            // 
+            // tb_CEP
+            // 
+            tb_CEP.Font = new Font("Microsoft Sans Serif", 11F);
+            tb_CEP.HideSelection = false;
+            tb_CEP.Location = new Point(543, 236);
+            tb_CEP.Margin = new Padding(3, 2, 3, 2);
+            tb_CEP.Name = "tb_CEP";
+            tb_CEP.Size = new Size(263, 24);
+            tb_CEP.TabIndex = 42;
+            // 
+            // lbl_CEP
+            // 
+            lbl_CEP.AutoSize = true;
+            lbl_CEP.Location = new Point(543, 206);
+            lbl_CEP.Name = "lbl_CEP";
+            lbl_CEP.Size = new Size(28, 15);
+            lbl_CEP.TabIndex = 41;
+            lbl_CEP.Text = "CEP";
             // 
             // w_Det_Cadastrar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(903, 522);
+            Controls.Add(tb_CEP);
+            Controls.Add(lbl_CEP);
             Controls.Add(tb_NomeCad);
             Controls.Add(tb_EmailCad);
             Controls.Add(lbl_Nome);
@@ -341,5 +368,7 @@
         private Label lbl_Email;
         private System.Windows.Forms.Timer sidebartimerCad;
         private TextBox tb_NomeCad;
+        private TextBox tb_CEP;
+        private Label lbl_CEP;
     }
 }

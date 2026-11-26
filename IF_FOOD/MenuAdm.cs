@@ -28,15 +28,13 @@ namespace IF_FOOD
             {
                 using (OracleConnection conn = ConexaoOracle.ObterConexao())
                 {
-                    // Buscando da tabela PRODUTO com as colunas corretas
-                    string sql = "SELECT ID_PRODUTO, NOME_PROD, CATEGORIA, PRECO, QTDE, DESC_PRODUTO, IMAGEM FROM PRODUTO";
+                    string sql = "SELECT ID_PRODUTO, NOME_PROD, CATEGORIA, PRECO, QTDE, DESC_PRODUTO, IMAGEM FROM G6_PRODUTO";
 
                     using (OracleDataAdapter adapter = new OracleDataAdapter(sql, conn))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
 
-                        // Atribui ao DataGridView
                         dataGridView1.DataSource = dt;
                     }
                 }
@@ -52,7 +50,6 @@ namespace IF_FOOD
             w_CadastrarProduto cadP = new w_CadastrarProduto();
             cadP.ShowDialog();
 
-            // Atualiza a grid automaticamente ao fechar o cadastro
             CarregarProdutos();
         }
 

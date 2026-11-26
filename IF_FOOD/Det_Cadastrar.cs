@@ -30,24 +30,22 @@ namespace IF_FOOD
         {
             if (sidebarExpand)
             {
-                // Se está aberto, vai diminuindo a largura de 10 em 10 pixels
                 SideBarCad.Width -= 10;
                 if (SideBarCad.Width <= larguraMinima)
                 {
                     SideBarCad.Width = larguraMinima;
                     sidebarExpand = false;
-                    sidebartimerCad.Stop(); // Para a animação
+                    sidebartimerCad.Stop();
                 }
             }
             else
             {
-                // Se está fechado, vai aumentando a largura de 10 em 10 pixels
                 SideBarCad.Width += 10;
                 if (SideBarCad.Width >= larguraMaxima)
                 {
                     SideBarCad.Width = larguraMaxima;
                     sidebarExpand = true;
-                    sidebartimerCad.Stop(); // Para a animação
+                    sidebartimerCad.Stop();
                 }
             }
         }
@@ -73,28 +71,26 @@ namespace IF_FOOD
 
             try
             {
-                // Cria o objeto e joga os valores vindos dos TextBoxes com final Cad
                 User_BD novoUsuario = new User_BD
                 {
                     CPF = tb_CpfCad.Text.Trim(),
                     NOME = tb_NomeCad.Text.Trim(),
                     EMAIL = tb_EmailCad.Text.Trim(),
                     SENHA = tb_SenhaCad.Text.Trim()
+
                 };
 
-                // Chama o método Inserir da sua classe User_BD para ir para o Oracle
                 novoUsuario.Inserir(novoUsuario);
 
                 MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Limpa os campos e volta o foco para o primeiro
                 tb_CpfCad.Clear();
                 tb_NomeCad.Clear();
                 tb_EmailCad.Clear();
                 tb_SenhaCad.Clear();
                 tb_CpfCad.Focus();
 
-                this.Close(); // Fecha a tela de cadastro após salvar (opcional)
+                this.Close();
             }
             catch (OracleException ex)
             {
@@ -104,6 +100,12 @@ namespace IF_FOOD
             {
                 MessageBox.Show("Erro inesperado: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_Cadastro_Cad_Click(object sender, EventArgs e)
+        {
+            w_Det_Cadastrar Cadastro = new w_Det_Cadastrar();
+            Cadastro.ShowDialog();
         }
     }
 }

@@ -1,4 +1,3 @@
-
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -24,13 +23,11 @@ namespace IF_FOOD
 
         private void btn_Entrar_Click(object sender, EventArgs e)
         {
-            // Pega os dados digitados nos TextBoxes
+
             string cpf = Regex.Replace(tb_Cpf.Text.Trim(), @"\D", "");
             string senha = tb_Senha.Text;
 
-            // Verifica se os campos estão preenchidos
-            if (string.IsNullOrWhiteSpace(cpf) ||
-                string.IsNullOrWhiteSpace(senha))
+            if (cpf == ""|| senha == "")
             {
                 MessageBox.Show("Preencha o CPF e a senha!");
                 return;
@@ -44,7 +41,6 @@ namespace IF_FOOD
 
             try
             {
-                // Obtém a conexão com o Oracle
                 using (OracleConnection conexao = ConexaoOracle.ObterConexao())
                 {
                     if (conexao.State != System.Data.ConnectionState.Open)
@@ -52,7 +48,6 @@ namespace IF_FOOD
                         conexao.Open();
                     }
 
-                    // 1. Verifica se o CPF existe no banco
                     string sqlCPF = @"
                         SELECT COUNT(*)
                         FROM G6_USUARIO
@@ -73,14 +68,12 @@ namespace IF_FOOD
                         existeCPF = Convert.ToInt32(comando.ExecuteScalar());
                     }
 
-                    // Se o CPF não estiver cadastrado
                     if (existeCPF == 0)
                     {
                         MessageBox.Show("CPF não encontrado no banco de dados!");
                         return;
                     }
 
-                    // 2. Verifica se a senha está correta
                     string sqlSenha = @"
                         SELECT COUNT(*)
                         FROM G6_USUARIO
@@ -103,15 +96,13 @@ namespace IF_FOOD
                         loginValido = Convert.ToInt32(comando.ExecuteScalar());
                     }
 
-                    // Se a senha estiver incorreta
                     if (loginValido == 0)
                     {
                         MessageBox.Show("Senha incorreta!");
                         return;
                     }
 
-                    // 3. Verifica se é administrador ou usuário comum
-                    if (cpf == "53968518802")
+                    if (cpf == "53968518802" || cpf == "01234567890")
                     {
                         MessageBox.Show("Bem-vindo, administrador!");
 
@@ -184,24 +175,22 @@ namespace IF_FOOD
         {
             if (sidebarExpand)
             {
-                // Se está aberto, vai diminuindo a largura de 10 em 10 pixels
                 SideBar.Width -= 10;
                 if (SideBar.Width <= larguraMinima)
                 {
                     SideBar.Width = larguraMinima;
                     sidebarExpand = false;
-                    sidebarTimer.Stop(); // Para a animação
+                    sidebarTimer.Stop();
                 }
             }
             else
             {
-                // Se está fechado, vai aumentando a largura de 10 em 10 pixels
                 SideBar.Width += 10;
                 if (SideBar.Width >= larguraMaxima)
                 {
                     SideBar.Width = larguraMaxima;
                     sidebarExpand = true;
-                    sidebarTimer.Stop(); // Para a animação
+                    sidebarTimer.Stop();
                 }
             }
         }
@@ -221,6 +210,11 @@ namespace IF_FOOD
         {
             w_Det_Cadastrar Cadastrar = new w_Det_Cadastrar();
             Cadastrar.ShowDialog();
+        }
+
+        private void p_Login_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

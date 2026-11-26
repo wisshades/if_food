@@ -58,16 +58,18 @@
             panelImagem.Controls.Add(btn_colocar);
             panelImagem.Controls.Add(lbl_imagem);
             panelImagem.Controls.Add(pb_cad);
-            panelImagem.Location = new Point(62, 89);
+            panelImagem.Location = new Point(54, 67);
+            panelImagem.Margin = new Padding(3, 2, 3, 2);
             panelImagem.Name = "panelImagem";
-            panelImagem.Size = new Size(254, 349);
+            panelImagem.Size = new Size(222, 262);
             panelImagem.TabIndex = 0;
             // 
             // btn_colocar
             // 
-            btn_colocar.Location = new Point(60, 301);
+            btn_colocar.Location = new Point(52, 226);
+            btn_colocar.Margin = new Padding(3, 2, 3, 2);
             btn_colocar.Name = "btn_colocar";
-            btn_colocar.Size = new Size(132, 29);
+            btn_colocar.Size = new Size(116, 22);
             btn_colocar.TabIndex = 2;
             btn_colocar.Text = "Colocar Imagem";
             btn_colocar.UseVisualStyleBackColor = true;
@@ -78,18 +80,19 @@
             lbl_imagem.AutoSize = true;
             lbl_imagem.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_imagem.ForeColor = SystemColors.ButtonHighlight;
-            lbl_imagem.Location = new Point(44, 27);
+            lbl_imagem.Location = new Point(38, 20);
             lbl_imagem.Name = "lbl_imagem";
-            lbl_imagem.Size = new Size(172, 23);
+            lbl_imagem.Size = new Size(145, 19);
             lbl_imagem.TabIndex = 1;
             lbl_imagem.Text = "Imagem do Produto";
             // 
             // pb_cad
             // 
             pb_cad.BackColor = Color.White;
-            pb_cad.Location = new Point(25, 110);
+            pb_cad.Location = new Point(22, 82);
+            pb_cad.Margin = new Padding(3, 2, 3, 2);
             pb_cad.Name = "pb_cad";
-            pb_cad.Size = new Size(204, 179);
+            pb_cad.Size = new Size(178, 134);
             pb_cad.TabIndex = 0;
             pb_cad.TabStop = false;
             pb_cad.Click += pb_cad_Click;
@@ -107,16 +110,18 @@
             panelCadastrar.Controls.Add(lbl_categoria);
             panelCadastrar.Controls.Add(txt_nome);
             panelCadastrar.Controls.Add(lbl_nome);
-            panelCadastrar.Location = new Point(391, 89);
+            panelCadastrar.Location = new Point(342, 67);
+            panelCadastrar.Margin = new Padding(3, 2, 3, 2);
             panelCadastrar.Name = "panelCadastrar";
-            panelCadastrar.Size = new Size(344, 432);
+            panelCadastrar.Size = new Size(301, 324);
             panelCadastrar.TabIndex = 1;
             // 
             // txt_qnt
             // 
-            txt_qnt.Location = new Point(18, 376);
+            txt_qnt.Location = new Point(16, 282);
+            txt_qnt.Margin = new Padding(3, 2, 3, 2);
             txt_qnt.Name = "txt_qnt";
-            txt_qnt.Size = new Size(298, 27);
+            txt_qnt.Size = new Size(261, 23);
             txt_qnt.TabIndex = 9;
             // 
             // lbl_qnt
@@ -124,17 +129,18 @@
             lbl_qnt.AutoSize = true;
             lbl_qnt.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_qnt.ForeColor = SystemColors.ButtonHighlight;
-            lbl_qnt.Location = new Point(18, 353);
+            lbl_qnt.Location = new Point(16, 265);
             lbl_qnt.Name = "lbl_qnt";
-            lbl_qnt.Size = new Size(104, 23);
+            lbl_qnt.Size = new Size(87, 19);
             lbl_qnt.TabIndex = 8;
             lbl_qnt.Text = "Quantidade";
             // 
             // txt_desc
             // 
-            txt_desc.Location = new Point(18, 301);
+            txt_desc.Location = new Point(16, 226);
+            txt_desc.Margin = new Padding(3, 2, 3, 2);
             txt_desc.Name = "txt_desc";
-            txt_desc.Size = new Size(298, 27);
+            txt_desc.Size = new Size(261, 23);
             txt_desc.TabIndex = 7;
             // 
             // lbl_desc
@@ -142,17 +148,18 @@
             lbl_desc.AutoSize = true;
             lbl_desc.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_desc.ForeColor = SystemColors.ButtonHighlight;
-            lbl_desc.Location = new Point(18, 278);
+            lbl_desc.Location = new Point(16, 208);
             lbl_desc.Name = "lbl_desc";
-            lbl_desc.Size = new Size(86, 23);
+            lbl_desc.Size = new Size(74, 19);
             lbl_desc.TabIndex = 6;
             lbl_desc.Text = "Descrição";
             // 
             // txt_preco
             // 
-            txt_preco.Location = new Point(18, 219);
+            txt_preco.Location = new Point(16, 164);
+            txt_preco.Margin = new Padding(3, 2, 3, 2);
             txt_preco.Name = "txt_preco";
-            txt_preco.Size = new Size(298, 27);
+            txt_preco.Size = new Size(261, 23);
             txt_preco.TabIndex = 5;
             // 
             // lbl_preco
@@ -160,9 +167,9 @@
             lbl_preco.AutoSize = true;
             lbl_preco.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_preco.ForeColor = SystemColors.ButtonHighlight;
-            lbl_preco.Location = new Point(18, 187);
+            lbl_preco.Location = new Point(16, 140);
             lbl_preco.Name = "lbl_preco";
-            lbl_preco.Size = new Size(54, 23);
+            lbl_preco.Size = new Size(48, 19);
             lbl_preco.TabIndex = 4;
             lbl_preco.Text = "Preço";
             // 
@@ -170,9 +177,10 @@
             // 
             cb_categoria.FormattingEnabled = true;
             cb_categoria.Items.AddRange(new object[] { "Wrap", "Bebida", "Sobremesa" });
-            cb_categoria.Location = new Point(18, 121);
+            cb_categoria.Location = new Point(16, 91);
+            cb_categoria.Margin = new Padding(3, 2, 3, 2);
             cb_categoria.Name = "cb_categoria";
-            cb_categoria.Size = new Size(298, 28);
+            cb_categoria.Size = new Size(261, 23);
             cb_categoria.TabIndex = 3;
             cb_categoria.SelectedIndexChanged += cb_categoria_SelectedIndexChanged;
             // 
@@ -181,17 +189,18 @@
             lbl_categoria.AutoSize = true;
             lbl_categoria.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_categoria.ForeColor = SystemColors.ButtonHighlight;
-            lbl_categoria.Location = new Point(18, 88);
+            lbl_categoria.Location = new Point(16, 66);
             lbl_categoria.Name = "lbl_categoria";
-            lbl_categoria.Size = new Size(88, 23);
+            lbl_categoria.Size = new Size(75, 19);
             lbl_categoria.TabIndex = 2;
             lbl_categoria.Text = "Categoria";
             // 
             // txt_nome
             // 
-            txt_nome.Location = new Point(18, 36);
+            txt_nome.Location = new Point(16, 27);
+            txt_nome.Margin = new Padding(3, 2, 3, 2);
             txt_nome.Name = "txt_nome";
-            txt_nome.Size = new Size(298, 27);
+            txt_nome.Size = new Size(261, 23);
             txt_nome.TabIndex = 1;
             // 
             // lbl_nome
@@ -199,17 +208,18 @@
             lbl_nome.AutoSize = true;
             lbl_nome.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl_nome.ForeColor = SystemColors.ButtonHighlight;
-            lbl_nome.Location = new Point(18, 7);
+            lbl_nome.Location = new Point(16, 5);
             lbl_nome.Name = "lbl_nome";
-            lbl_nome.Size = new Size(154, 23);
+            lbl_nome.Size = new Size(131, 19);
             lbl_nome.TabIndex = 0;
             lbl_nome.Text = "Nome do Produto";
             // 
             // btn_salvar
             // 
-            btn_salvar.Location = new Point(229, 556);
+            btn_salvar.Location = new Point(200, 417);
+            btn_salvar.Margin = new Padding(3, 2, 3, 2);
             btn_salvar.Name = "btn_salvar";
-            btn_salvar.Size = new Size(292, 47);
+            btn_salvar.Size = new Size(256, 35);
             btn_salvar.TabIndex = 2;
             btn_salvar.Text = "Salvar Produto";
             btn_salvar.UseVisualStyleBackColor = true;
@@ -218,18 +228,19 @@
             // lbl_cadastro
             // 
             lbl_cadastro.AutoSize = true;
-            lbl_cadastro.Font = new Font("Showcard Gothic", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lbl_cadastro.Location = new Point(68, 9);
+            lbl_cadastro.Font = new Font("Microsoft Sans Serif", 25.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_cadastro.Location = new Point(60, 7);
             lbl_cadastro.Name = "lbl_cadastro";
-            lbl_cadastro.Size = new Size(547, 54);
+            lbl_cadastro.Size = new Size(360, 39);
             lbl_cadastro.TabIndex = 6;
             lbl_cadastro.Text = "Cadastro De Produto";
             // 
             // btn_fechar
             // 
-            btn_fechar.Location = new Point(630, 549);
+            btn_fechar.Location = new Point(551, 412);
+            btn_fechar.Margin = new Padding(3, 2, 3, 2);
             btn_fechar.Name = "btn_fechar";
-            btn_fechar.Size = new Size(158, 54);
+            btn_fechar.Size = new Size(138, 40);
             btn_fechar.TabIndex = 7;
             btn_fechar.Text = "Sair";
             btn_fechar.UseVisualStyleBackColor = true;
@@ -241,15 +252,17 @@
             // 
             // w_CadastrarProduto
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 631);
+            ClientSize = new Size(700, 473);
             Controls.Add(btn_fechar);
             Controls.Add(lbl_cadastro);
             Controls.Add(btn_salvar);
             Controls.Add(panelCadastrar);
             Controls.Add(panelImagem);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "w_CadastrarProduto";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "CadastrarProduto";
             Load += w_CadastrarProduto_Load;
             panelImagem.ResumeLayout(false);

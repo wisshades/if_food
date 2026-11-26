@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
+using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace IF_FOOD
 {
@@ -21,62 +18,203 @@ namespace IF_FOOD
 
         private void btn_salvar_Click(object sender, EventArgs e)
         {
+            string caminhoImagem = "";
+            string imagemSalva = "";
+
             try
             {
-                // Verifica os campos obrigatórios
-                if (txt_nome.Text == "" ||
-                    txt_preco.Text == "" ||
-                    txt_qnt.Text == "" ||
-                    cb_categoria.Text == "")
+       
+
+                string nome = txt_nome.Text.Trim();
+                string categoria = cb_categoria.Text.Trim();
+                string descricao = txt_desc.Text.Trim();
+
+                
+
+                if (nome == "" ||
+                    categoria == "" ||
+                    descricao == "" ||
+                    txt_preco.Text.Trim() == "" ||
+                    txt_qnt.Text.Trim() == "" ||
+                    string.IsNullOrWhiteSpace(pb_cad.ImageLocation))
                 {
-                    MessageBox.Show("Preencha todos os campos obrigatórios!");
+                    MessageBox.Show("Preencha todos os campos e selecione uma imagem!");
                     return;
                 }
 
-                // Converte os valores
-                decimal preco = decimal.Parse(txt_preco.Text);
-                int quantidade = int.Parse(txt_qnt.Text);
+                
+                if (nome.Length > 40)
+                {
+                    MessageBox.Show("O nome deve ter no máximo 40 caracteres!");
+                    return;
+                }
 
-                // Recupera o caminho da imagem
-                string imagem = pb_cad.ImageLocation;
+                if (categoria.Length > 20)
+                {
+                    MessageBox.Show("A categoria deve ter no máximo 20 caracteres!");
+                    return;
+                }
 
-                // Conecta ao banco Oracle
+                if (descricao.Length > 200)
+                {
+                    MessageBox.Show("A descrição deve ter no máximo 200 caracteres!");
+                    return;
+                }
+
+               
+                decimal preco;
+
+                CultureInfo cultura = txt_preco.Text.Contains(",")
+                    ? new CultureInfo("pt-BR")
+                    : CultureInfo.InvariantCulture;
+
+                if (!decimal.TryParse(
+                    txt_preco.Text.Trim(),
+                    NumberStyles.Number,
+                    cultura,
+                    out preco) || preco < 0)
+                {
+                    MessageBox.Show("Digite um preço válido!");
+                    return;
+                }
+
+
+                int quantidade;
+
+                if (!int.TryParse(txt_qnt.Text.Trim(), out quantidade) ||
+                    quantidade < 0)
+                {
+                    MessageBox.Show("Digite uma quantidade válida!");
+                    return;
+                }
+
+                if (!File.Exists(pb_cad.ImageLocation))
+                {
+                    MessageBox.Show("A imagem selecionada não foi encontrada!");
+                    return;
+                }
+
+
+                string pastaImagens = Path.Combine(
+                    Application.StartupPath,
+                    "Imagens"
+                );
+
+                Directory.CreateDirectory(pastaImagens);
+
+
+                string extensao = Path.GetExtension(pb_cad.ImageLocation);
+
+                string nomeImagem = Guid.NewGuid().ToString("N") + extensao;
+
+                caminhoImagem = Path.Combine(
+                    pastaImagens,
+                    nomeImagem
+                );
+
+
+                File.Copy(
+                    pb_cad.ImageLocation,
+                    caminhoImagem,
+                    true
+                );
+
+                imagemSalva = caminhoImagem;
+
+
                 using (OracleConnection conn = ConexaoOracle.ObterConexao())
                 {
-                    // Usando NOME_PROD conforme a nova estrutura da tabela
-                    string sql = @"INSERT INTO PRODUTO
-                       (NOME_PROD, CATEGORIA, PRECO, DESC_PRODUTO, QTDE, IMAGEM)
-                       VALUES
-                       (:nome, :categoria, :preco, :descricao, :quantidade, :imagem)";
+                    if (conn.State != System.Data.ConnectionState.Open)
+                    {
+                        conn.Open();
+                    }
+
+                    string sql = @"
+                        INSERT INTO G6_PRODUTO
+                        (
+                            NOME_PROD,
+                            CATEGORIA,
+                            PRECO,
+                            DESC_PRODUTO,
+                            QTDE,
+                            IMAGEM
+                        )
+                        VALUES
+                        (
+                            :nome,
+                            :categoria,
+                            :preco,
+                            :descricao,
+                            :quantidade,
+                            :imagem
+                        )";
 
                     using (OracleCommand cmd = new OracleCommand(sql, conn))
                     {
                         cmd.BindByName = true;
 
-                        cmd.Parameters.Add("nome", OracleDbType.Varchar2).Value = txt_nome.Text;
-                        cmd.Parameters.Add("categoria", OracleDbType.Varchar2).Value = cb_categoria.Text;
-                        cmd.Parameters.Add("preco", OracleDbType.Decimal).Value = preco;
-                        cmd.Parameters.Add("descricao", OracleDbType.Varchar2).Value = txt_desc.Text;
-                        cmd.Parameters.Add("quantidade", OracleDbType.Int32).Value = quantidade;
-                        cmd.Parameters.Add("imagem", OracleDbType.Varchar2).Value =
-                            string.IsNullOrEmpty(imagem) ? (object)DBNull.Value : imagem;
+                        cmd.Parameters.Add(
+                            "nome",
+                            OracleDbType.Varchar2
+                        ).Value = nome;
+
+                        cmd.Parameters.Add(
+                            "categoria",
+                            OracleDbType.Varchar2
+                        ).Value = categoria;
+
+                        cmd.Parameters.Add(
+                            "preco",
+                            OracleDbType.Decimal
+                        ).Value = preco;
+
+                        cmd.Parameters.Add(
+                            "descricao",
+                            OracleDbType.Varchar2
+                        ).Value = descricao;
+
+                        cmd.Parameters.Add(
+                            "quantidade",
+                            OracleDbType.Int32
+                        ).Value = quantidade;
+
+                        cmd.Parameters.Add(
+                            "imagem",
+                            OracleDbType.Varchar2
+                        ).Value = nomeImagem;
 
                         cmd.ExecuteNonQuery();
                     }
                 }
 
-                MessageBox.Show("Produto cadastrado com sucesso!",
-                    "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    "Produto cadastrado com sucesso!",
+                    "Sucesso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
 
                 this.Close();
             }
             catch (OracleException ex)
             {
-                MessageBox.Show("Erro no banco Oracle: " + ex.Message);
+
+                if (imagemSalva != "" && File.Exists(imagemSalva))
+                {
+                    File.Delete(imagemSalva);
+                }
+
+                MessageBox.Show(
+                    "Erro no banco Oracle:\n" + ex.Message,
+                    "Erro Oracle"
+                );
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro: " + ex.Message);
+                MessageBox.Show(
+                    "Erro:\n" + ex.Message,
+                    "Erro"
+                );
             }
         }
 
@@ -88,10 +226,18 @@ namespace IF_FOOD
                 txt_desc.Text = this.P.Desc;
                 txt_qnt.Text = this.P.Qtde.ToString();
                 cb_categoria.Text = this.P.categoria;
-                txt_preco.Text = this.P.Preco.ToString();
+
+                txt_preco.Text = this.P.Preco.ToString(
+                    "0.00",
+                    new CultureInfo("pt-BR")
+                );
             }
+
             cb_categoria.DropDownStyle = ComboBoxStyle.DropDownList;
+
             pb_cad.AllowDrop = true;
+
+            pb_cad.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void btn_fechar_Click(object sender, EventArgs e)
@@ -111,12 +257,14 @@ namespace IF_FOOD
 
         private void btn_enviar_Click(object sender, EventArgs e)
         {
-            using(OpenFileDialog ofd = new OpenFileDialog())
+            using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Filter = "Arquivos de Imagem|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     pb_cad.ImageLocation = ofd.FileName;
+                    pb_cad.Load();
                 }
             }
         }
